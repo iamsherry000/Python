@@ -21,18 +21,16 @@ num3 = 8
 num4 = 7
 num5 = 6
 num6 = 5
-num7 = 8
-num8 = 7
-num9 = 6
-num6 = 5
+num7 = 4
+num8 = 3
+num9 = 2
+num10 = 1
 
+likes = [num1,num2,num3,num4,num5,num6,num7,num8,num9,num10]  # 將喜愛數加入likes的陣列
 
 for i in range(1,11):  # 將喜愛度從1-10排序
     numbers = i
-
-likes = [1th,2th,3th,4th,5th,6th,7th,8th,9th,10th]  # 將喜愛數加入likes的陣列
-
-
+    
 
 # x = np.arange(len(numbers))  # 10
 x = np.arange(10)  
