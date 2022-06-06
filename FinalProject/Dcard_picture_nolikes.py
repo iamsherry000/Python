@@ -1,4 +1,4 @@
-#Load all URL images
+#Load all URL images with no likes
 import time
 import requests,os
 from bs4 import BeautifulSoup
@@ -16,8 +16,9 @@ html = requests.get(url,headers=headers)
 html.encoding="UTF-8"
 
 sp = BeautifulSoup(html.text,'html.parser')
-#建立images月存圖片
-images_dir="C:/Users/a0920/Desktop/images/"
+#建立images存圖片
+#images_dir="C:/Users/a0920/Desktop/images/"
+images_dir ="D:/github/Python/FinalProject/images/"
 if not os.path.exists(images_dir):
     os.mkdir(images_dir)
 
@@ -27,6 +28,8 @@ for link in all_links:
     src=link.get('src')
     href = link.get('href') #指定一個URL看連結要到哪
     attrs=[src,href]
+    if n == 11:
+        break
     for attr in attrs:
 #讀取 .jpg 和 .png檔
         if attr != None and ('.webp' in attr):
@@ -36,10 +39,11 @@ for link in all_links:
 #儲存圖片
             try :
                 image = requests.get(full_path,headers=headers)
-                f = open(images_dir + filename + str(n+1) + ".jpg", "wb")
+                f = open(images_dir + filename + str(n) + ".jpg", "wb")
                 f.write(image.content)
                 f.close()
                 n+=1
+                
             except:
                 print("{}無法讀取!".format(filename))
 print(n)
